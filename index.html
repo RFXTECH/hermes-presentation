@@ -35,6 +35,18 @@
     .evo-art { height: 190px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
     .evo-num { font-size: 0.58em; color: #666; }
     .evo-title { font-size: 0.8em; color: #fff; margin-top: 4px; }
+    .route-row { margin: 30px 0; text-align: left; }
+    .route-label { font-size: 0.55em; color: #888; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .route-bar { display: flex; gap: 4px; }
+    .route-bar span { flex: 1; height: 46px; border-radius: 2px; }
+    .seg-frontier { background: #e8e8e8; }
+    .seg-cheap { background: #3d3d3d; }
+    .route-caption { font-size: 0.72em; color: #999; margin-top: 8px; }
+    .route-legend { display: flex; gap: 30px; align-items: center; margin-top: 34px; font-size: 0.55em; color: #888; letter-spacing: 0.08em; }
+    .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+    .sw-frontier { background: #e8e8e8; }
+    .sw-cheap { background: #3d3d3d; }
+    .route-meta { margin-left: auto; }
   </style>
 </head>
 <body>
@@ -308,6 +320,27 @@
       <li>The fallback is Python on the fixture. It is not a simulated agent transcript.</li>
     </ul>
     <aside class="notes">Appendix / optional. No service credentials needed for the sample analysis itself; Hermes still needs its model configuration.</aside>
+  </section>
+
+  <!-- 15b ── APPENDIX: MODEL ROUTING -->
+  <section>
+    <h2>Appendix: from model selection to model routing.</h2>
+    <div class="route-row">
+      <div class="route-label">MODEL SELECTION</div>
+      <div class="route-bar"><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-frontier"></span></div>
+      <div class="route-caption">every step on the model someone picked</div>
+    </div>
+    <div class="route-row">
+      <div class="route-label">MODEL ROUTING</div>
+      <div class="route-bar"><span class="seg-frontier"></span><span class="seg-frontier"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-frontier"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-frontier"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span><span class="seg-cheap"></span></div>
+      <div class="route-caption">frontier only where it matters</div>
+    </div>
+    <div class="route-legend">
+      <span><span class="swatch sw-frontier"></span>FRONTIER MODEL</span>
+      <span><span class="swatch sw-cheap"></span>CHEAPER MODEL</span>
+      <span class="route-meta">ONE WEEK OF AGENT WORK</span>
+    </div>
+    <aside class="notes">Running every agent step on a frontier model is the expensive default. Routing — frontier only where the task needs it, cheaper models everywhere else — is how a week of agent work stays affordable. Hermes model choice and per-task configuration make this practical. Ties back to the cost slide: set a spend limit, inspect actual usage.</aside>
   </section>
 
   <!-- 16 ── APPENDIX -->
