@@ -29,6 +29,12 @@
     .timer { font-size: 0.5em; color: #aaa; display: block; margin-top: 4px; }
     .quote { font-style: italic; color: #ccc; border-left: 4px solid var(--accent);
              padding-left: 16px; margin: 20px auto; max-width: 80%; font-size: 0.85em; }
+    .evolution { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 24px; }
+    .evo-col { border-left: 1px solid #444; padding-left: 18px; text-align: left; }
+    .evo-time { font-size: 0.58em; color: #aaa; margin-bottom: 10px; min-height: 1.6em; }
+    .evo-art { height: 190px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .evo-num { font-size: 0.58em; color: #666; }
+    .evo-title { font-size: 0.8em; color: #fff; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -56,6 +62,92 @@
       <li>We still set the <strong>goal, scope, and acceptance criteria</strong>.</li>
     </ul>
     <aside class="notes">60 seconds. Ask the room the opening question. The distinction: a configurable, persistent runtime we operate around our own workflows — not just a chat window with tools.</aside>
+  </section>
+
+  <!-- 3 ── FORM FACTOR -->
+  <section>
+    <h2>The form factor is changing.</h2>
+    <div class="evolution">
+      <div class="evo-col">
+        <div class="evo-time">Seconds</div>
+        <div class="evo-art">
+          <svg width="140" height="90" viewBox="0 0 140 90">
+            <rect x="8" y="22" width="66" height="6" rx="3" fill="#555"/>
+            <rect x="8" y="36" width="42" height="6" rx="3" fill="#4F81BD"/>
+            <rect x="8" y="50" width="56" height="6" rx="3" fill="#555"/>
+            <rect x="90" y="30" width="40" height="24" rx="4" fill="none" stroke="#888" stroke-width="1.5"/>
+            <text x="110" y="46" text-anchor="middle" font-size="10" fill="#aaa" font-family="sans-serif">TAB</text>
+          </svg>
+        </div>
+        <div class="evo-num">01</div>
+        <div class="evo-title">Tab completion</div>
+      </div>
+      <div class="evo-col">
+        <div class="evo-time">Minutes</div>
+        <div class="evo-art">
+          <svg width="150" height="120" viewBox="0 0 150 120">
+            <rect x="12" y="6" width="126" height="108" rx="6" fill="none" stroke="#666" stroke-width="1.5"/>
+            <rect x="12" y="6" width="126" height="14" rx="6" fill="#2a2a2a"/>
+            <rect x="22" y="32" width="66" height="6" rx="3" fill="#555"/>
+            <rect x="22" y="44" width="52" height="6" rx="3" fill="#555"/>
+            <rect x="22" y="56" width="76" height="6" rx="3" fill="#4F81BD"/>
+            <rect x="22" y="68" width="58" height="6" rx="3" fill="#555"/>
+            <rect x="100" y="32" width="28" height="15" rx="3" fill="none" stroke="#555" stroke-width="1.2"/>
+            <rect x="100" y="53" width="28" height="11" rx="3" fill="#4F81BD" opacity="0.45"/>
+            <rect x="100" y="70" width="28" height="15" rx="3" fill="none" stroke="#555" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="evo-num">02</div>
+        <div class="evo-title">Agents in the IDE</div>
+      </div>
+      <div class="evo-col">
+        <div class="evo-time">Hours</div>
+        <div class="evo-art">
+          <svg width="150" height="120" viewBox="0 0 150 120">
+            <rect x="14" y="48" width="88" height="54" rx="8" fill="none" stroke="#555" stroke-width="1.5" opacity="0.45"/>
+            <rect x="30" y="32" width="88" height="54" rx="8" fill="none" stroke="#777" stroke-width="1.5" opacity="0.7"/>
+            <rect x="46" y="16" width="88" height="54" rx="8" fill="#161616" stroke="#aaa" stroke-width="1.5"/>
+            <circle cx="62" cy="43" r="5" fill="#4F81BD"/>
+            <rect x="74" y="40" width="48" height="6" rx="3" fill="#888"/>
+          </svg>
+        </div>
+        <div class="evo-num">03</div>
+        <div class="evo-title">Background agents</div>
+      </div>
+      <div class="evo-col">
+        <div class="evo-time">Days &rarr; Months &rarr; Years</div>
+        <div class="evo-art">
+          <svg width="150" height="130" viewBox="0 0 150 130">
+            <circle cx="75" cy="20" r="15" fill="none" stroke="#4F81BD" stroke-width="2"/>
+            <circle cx="75" cy="20" r="7" fill="none" stroke="#4F81BD" stroke-width="1.5"/>
+            <circle cx="75" cy="20" r="2.5" fill="#4F81BD"/>
+            <line x1="75" y1="35" x2="75" y2="48" stroke="#666" stroke-width="1.5"/>
+            <line x1="33" y1="48" x2="117" y2="48" stroke="#666" stroke-width="1.5"/>
+            <line x1="33" y1="48" x2="33" y2="58" stroke="#666" stroke-width="1.5"/>
+            <line x1="75" y1="48" x2="75" y2="58" stroke="#666" stroke-width="1.5"/>
+            <line x1="117" y1="48" x2="117" y2="58" stroke="#666" stroke-width="1.5"/>
+            <circle cx="33" cy="68" r="10" fill="none" stroke="#777" stroke-width="1.5"/>
+            <circle cx="75" cy="68" r="10" fill="none" stroke="#777" stroke-width="1.5"/>
+            <circle cx="117" cy="68" r="10" fill="none" stroke="#777" stroke-width="1.5"/>
+            <line x1="33" y1="78" x2="33" y2="88" stroke="#555" stroke-width="1.2"/>
+            <line x1="24" y1="88" x2="42" y2="88" stroke="#555" stroke-width="1.2"/>
+            <circle cx="24" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+            <circle cx="42" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+            <line x1="75" y1="78" x2="75" y2="88" stroke="#555" stroke-width="1.2"/>
+            <line x1="66" y1="88" x2="84" y2="88" stroke="#555" stroke-width="1.2"/>
+            <circle cx="66" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+            <circle cx="84" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+            <line x1="117" y1="78" x2="117" y2="88" stroke="#555" stroke-width="1.2"/>
+            <line x1="108" y1="88" x2="126" y2="88" stroke="#555" stroke-width="1.2"/>
+            <circle cx="108" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+            <circle cx="126" cy="98" r="6" fill="none" stroke="#666" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="evo-num">04</div>
+        <div class="evo-title">A virtual employee</div>
+      </div>
+    </div>
+    <aside class="notes">The interface keeps moving up the stack: completing keystrokes, to working inside the editor, to running in the background, to owning outcomes over days and months. Hermes sits at that third and fourth stage — a persistent worker you hand bounded jobs to, and check the evidence.</aside>
   </section>
 
   <!-- 3 -->
