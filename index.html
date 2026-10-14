@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hermes Agent: From Answers to Action</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+  <style>
+    :root { --accent: #4F81BD; --accent2: #9BBB59; }
+    .reveal h1, .reveal h2, .reveal h3 { color: var(--accent); }
+    .reveal h1 { font-size: 2em; }
+    .reveal h2 { font-size: 1.4em; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+    .reveal p, .reveal li { font-size: 0.82em; line-height: 1.6; }
+    .reveal pre { width: 100%; font-size: 0.58em; }
+    .reveal code { color: #f8f8f2; }
+    .reveal a { color: var(--accent); }
+    .tag { display: inline-block; background: var(--accent); color: #fff;
+           border-radius: 4px; padding: 2px 10px; font-size: 0.55em;
+           vertical-align: middle; margin-left: 8px; }
+    .tag.green { background: #2ecc71; }
+    .tag.orange { background: #e67e22; }
+    .box { background: rgba(79,129,189,0.12); border-left: 4px solid var(--accent);
+           padding: 10px 16px; border-radius: 4px; font-size: 0.75em; }
+    .box.warn { border-left-color: #e67e22; background: rgba(230,126,34,0.1); }
+    .box.success { border-left-color: #2ecc71; background: rgba(46,204,113,0.1); }
+    .timer { font-size: 0.5em; color: #aaa; display: block; margin-top: 4px; }
+    .quote { font-style: italic; color: #ccc; border-left: 4px solid var(--accent);
+             padding-left: 16px; margin: 20px auto; max-width: 80%; font-size: 0.85em; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- 1 ── TITLE -->
+  <section>
+    <h1 style="font-size:2.2em;">Hermes Agent</h1>
+    <p style="font-size:1em; color:var(--accent);">From Answers to Action</p>
+    <br/>
+    <p style="color:#aaa; font-size:0.75em;">AI Builder Club &nbsp;·&nbsp; a practical builder's perspective</p>
+    <br/>
+    <p style="font-size:0.65em; color:#666;">Use arrow keys or swipe to navigate &nbsp;·&nbsp; Press <kbd>F</kbd> for fullscreen &nbsp;·&nbsp; Press <kbd>S</kbd> for speaker notes</p>
+    <aside class="notes">Opening line: "Most of us use AI to get an answer. Hermes is interesting because we can give it a bounded job — and ask it to show the evidence." 45 seconds. Positioning: a practical evaluation, not a company-approved deployment.</aside>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <h2>The answer is only half the work.</h2>
+    <ul>
+      <li>Who has copied code from a chat window, run it, and pasted the error back?</li>
+      <li>That back-and-forth is the <strong>handoff tax</strong>.</li>
+      <li>An agent can do parts of that loop directly: read a file, run a test, inspect the result, revise.</li>
+      <li>We still set the <strong>goal, scope, and acceptance criteria</strong>.</li>
+    </ul>
+    <aside class="notes">60 seconds. Ask the room the opening question. The distinction: a configurable, persistent runtime we operate around our own workflows — not just a chat window with tools.</aside>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <h2>Hermes is the worker, not the model.</h2>
+    <ul>
+      <li><strong>Model</strong> = the reasoning and language engine.</li>
+      <li><strong>Hermes</strong> = the surrounding runtime: packages task + context, exposes tools, executes tool calls, returns results.</li>
+      <li>Tools do the actual work: reading files, browsing pages, running commands, calling integrations.</li>
+    </ul>
+    <div class="box warn">A model <em>saying</em> it changed something is not evidence the change happened. Verification remains essential.</div>
+    <aside class="notes">75 seconds. Hermes is an open-source agent framework from Nous Research — not a new foundation model. Permissions come from the account and tools you give it.</aside>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <h2>Why run Hermes?</h2>
+    <ul>
+      <li><strong>Configurable execution</strong> — local or remote backends</li>
+      <li><strong>Model choice</strong> — pick the provider per task</li>
+      <li><strong>Continuity</strong> — memory and skills across sessions</li>
+      <li><strong>Many front ends</strong> — desktop app, CLI, messaging platforms</li>
+      <li><strong>Open source</strong> — inspect it, extend it</li>
+    </ul>
+    <p style="color:#aaa; font-size:0.7em;">No single feature is unique to Hermes. Evaluate the fit.</p>
+    <aside class="notes">90 seconds. Operating it takes effort; memory can go stale; messaging needs explicit setup. Use only company-approved channels for work.</aside>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <h2>A good agent closes the loop.</h2>
+    <ul>
+      <li>Incident? Inspect logs and explain <em>before</em> remediating.</li>
+      <li>Code? Run the tests and report their <strong>actual output</strong>.</li>
+      <li>Record update? Read back the exact record.</li>
+    </ul>
+    <div class="box">Make the evidence requirement part of the task — e.g. "a pod in Running phase is not proof all containers are ready."</div>
+    <aside class="notes">75 seconds. The important part is not acting — it's closing the loop with evidence you can check.</aside>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <h2>Useful experience becomes reusable context.</h2>
+    <ul>
+      <li><strong>Memory</strong> — bounded, curated facts and history</li>
+      <li><strong>Skills</strong> — instruction documents the agent loads when relevant; it can create or update them after learning a workflow</li>
+      <li><strong>Session recall</strong> — retrieve past work on demand</li>
+    </ul>
+    <div class="box warn">A skill can preserve a mistake too — review important procedures. Don't save sensitive data in persistent memory.</div>
+    <aside class="notes">75 seconds. Chats don't retrain the model's weights — "learning" here means saved procedures and context.</aside>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <h2>Use cases beyond writing code.</h2>
+    <ul>
+      <li><strong>Nontechnical:</strong> source gathering, structured summaries, notes → actions</li>
+      <li><strong>Developers:</strong> reproduction, tests, documentation, proposed changes</li>
+      <li><strong>IT:</strong> start with read-only inspection in a lab</li>
+      <li><strong>Scheduled digests</strong> — host must be running, credentials valid</li>
+    </ul>
+    <p style="color:#aaa; font-size:0.7em;">Integrations need configured tools, APIs, or MCP servers — not magic.</p>
+    <aside class="notes">90 seconds. These are candidate workflows, not promises that every integration is installed.</aside>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <h2>From request to reviewable deliverable.</h2>
+    <ul>
+      <li>A low-risk first workflow: inputs and outputs are visible.</li>
+      <li>Distinguish numbers it <strong>computed</strong> from recommendations it <strong>inferred</strong>.</li>
+      <li>Require citations (e.g. ticket IDs) so a teammate can audit each concern.</li>
+    </ul>
+    <div class="box warn">Don't let it send the brief or edit tickets without separate approval.</div>
+    <aside class="notes">60 seconds. Before using at work: check whether the export can be sent to the selected model provider. An anonymized or synthetic dataset is a better starting point.</aside>
+  </section>
+
+  <!-- 9 -->
+  <section>
+    <h2>What I actually use it for.</h2>
+    <ul>
+      <li>Runs on my own infrastructure at home</li>
+      <li>I talk to it from a messaging app — and now the desktop app</li>
+      <li>Bounded jobs, with evidence required before I trust the result</li>
+    </ul>
+    <p style="color:#aaa; font-size:0.7em;">Personal, verified outcomes — not vendor benchmarks.</p>
+    <aside class="notes">75 seconds. Make this personal. Don't show private addresses, secrets, family details, or live home infrastructure on screen.</aside>
+  </section>
+
+  <!-- 10 ── DEMO -->
+  <section>
+    <h2>Demo: turn a CSV into a decision brief. <span class="tag green">live</span></h2>
+    <ul>
+      <li>Invented support tickets — <strong>not</strong> company data</li>
+      <li>Paste the prompt, watch the actual tool calls, get a decision brief</li>
+      <li>Compare the counts against <code>expected_metrics.json</code></li>
+    </ul>
+    <div class="box">Fallback: a deterministic Python check on the same fixture — labeled honestly, never presented as a live agent run.</div>
+    <aside class="notes">180 seconds. Open Hermes in the demo folder, paste the primary prompt from DEMO_GUIDE.md. Use a fresh demo session so personal history stays off screen. Keep private env vars off the projector.</aside>
+  </section>
+
+  <!-- 11 -->
+  <section>
+    <h2>Give it authority in layers.</h2>
+    <ul>
+      <li>Your local runtime is <strong>not</strong> automatically a private inference environment.</li>
+      <li>Prompts, documents, and tool outputs may go to the chosen provider.</li>
+      <li>Redaction and approval controls help — but aren't perfect.</li>
+      <li>A Docker backend isolates execution, not every network path.</li>
+    </ul>
+    <div class="box">Enforce permissions in accounts, credentials, tools, filesystem scope, and network policy — not in the prompt.</div>
+    <aside class="notes">90 seconds. This is the slide that keeps the pitch honest. Follow org security and procurement requirements before touching work data.</aside>
+  </section>
+
+  <!-- 12 -->
+  <section>
+    <h2>When not to use it — and what it costs.</h2>
+    <ul>
+      <li>Fixed calculation or threshold alert? <strong>A deterministic script wins.</strong> The agent can help write it.</li>
+      <li>No productivity percentage claimed here — we haven't measured one.</li>
+      <li>Costs: provider, context, tool use, retries, subagents.</li>
+    </ul>
+    <div class="box">Set a spend limit for a pilot. Inspect actual usage. Stop if repeated attempts aren't producing progress.</div>
+    <aside class="notes">75 seconds. For high-stakes actions, keep expert review and existing operational processes.</aside>
+  </section>
+
+  <!-- 13 -->
+  <section>
+    <h2>Start with one safe workflow.</h2>
+    <ul>
+      <li>Install: desktop app or CLI — <strong>don't install live during the talk</strong>, get approval first</li>
+      <li>After install: <code>setup</code> · <code>model</code> · <code>tools</code> · <code>doctor</code> · <code>hermes</code></li>
+      <li>Hosted models need valid credentials; local endpoints need solid tool-calling</li>
+    </ul>
+    <p style="color:#aaa; font-size:0.7em;">Point the audience at the official installation page.</p>
+    <aside class="notes">60 seconds. Quickstart documents a 64k-token minimum context. Subscription entitlement and company policy still need checking.</aside>
+  </section>
+
+  <!-- 14 -->
+  <section>
+    <h2>Try one workflow. Prove the value.</h2>
+    <ul>
+      <li>Pick a small experiment: a weekly brief, a public-source comparison, docs from a sandbox repo.</li>
+      <li>Time the current process — then time the agent-assisted one, <em>including review and correction</em>.</li>
+      <li>Compare <strong>quality</strong>, not just speed. Record permissions, data handling, cost.</li>
+    </ul>
+    <p style="color:#aaa; font-size:0.75em;">If it helps, share the reviewed workflow with the club. If it doesn't — keep the simpler approach.</p>
+    <aside class="notes">60 seconds. Close with the experiment, not an adoption pitch. Invite each person to name one repetitive task they'd let an agent draft today.</aside>
+  </section>
+
+  <!-- 15 ── APPENDIX -->
+  <section>
+    <h2>Appendix: demo prompts + a reliable fallback.</h2>
+    <ul>
+      <li>Full prompts, setup, and pass criteria: <code>demo/DEMO_GUIDE.md</code></li>
+      <li>Rehearse with your installed Hermes version, model, and tools</li>
+      <li>Use a <strong>new demo session</strong> — no personal history on screen</li>
+      <li>The fallback is Python on the fixture. It is not a simulated agent transcript.</li>
+    </ul>
+    <aside class="notes">Appendix / optional. No service credentials needed for the sample analysis itself; Hermes still needs its model configuration.</aside>
+  </section>
+
+  <!-- 16 ── APPENDIX -->
+  <section>
+    <h2>Appendix: official sources.</h2>
+    <ul style="font-size:0.7em;">
+      <li><a href="https://hermes-agent.nousresearch.com/docs/">Docs home</a></li>
+      <li><a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation">Installation</a> · <a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart">Quickstart</a></li>
+      <li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools">Tools</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/memory">Memory</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/skills">Skills</a></li>
+      <li><a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp">MCP</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging">Messaging</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/security">Security</a></li>
+      <li><a href="https://hermes-agent.nousresearch.com/docs/integrations/providers">Providers</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/cron">Cron</a> · <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/delegation">Delegation</a></li>
+    </ul>
+    <p style="color:#aaa; font-size:0.65em;">Feature claims from official docs. Personal examples are individual verified outcomes, not vendor benchmarks. The ticket dataset is synthetic.</p>
+    <aside class="notes">Appendix / optional. Revisit the docs before the talk — features and commands change.</aside>
+  </section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    slideNumber: true,
+    plugins: [ RevealHighlight, RevealNotes ]
+  });
+</script>
+</body>
+</html>
